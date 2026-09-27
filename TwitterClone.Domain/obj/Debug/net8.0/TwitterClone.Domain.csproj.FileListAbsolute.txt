@@ -1,0 +1,12 @@
+/media/nafis-ahamed/OS/CPS/development/TwitterClone/TwitterClone.Domain/bin/Debug/net8.0/TwitterClone.Domain.deps.json
+/media/nafis-ahamed/OS/CPS/development/TwitterClone/TwitterClone.Domain/bin/Debug/net8.0/TwitterClone.Domain.dll
+/media/nafis-ahamed/OS/CPS/development/TwitterClone/TwitterClone.Domain/bin/Debug/net8.0/TwitterClone.Domain.pdb
+/media/nafis-ahamed/OS/CPS/development/TwitterClone/TwitterClone.Domain/obj/Debug/net8.0/TwitterClone.Domain.GeneratedMSBuildEditorConfig.editorconfig
+/media/nafis-ahamed/OS/CPS/development/TwitterClone/TwitterClone.Domain/obj/Debug/net8.0/TwitterClone.Domain.AssemblyInfoInputs.cache
+/media/nafis-ahamed/OS/CPS/development/TwitterClone/TwitterClone.Domain/obj/Debug/net8.0/TwitterClone.Domain.AssemblyInfo.cs
+/media/nafis-ahamed/OS/CPS/development/TwitterClone/TwitterClone.Domain/obj/Debug/net8.0/TwitterClone.Domain.csproj.CoreCompileInputs.cache
+/media/nafis-ahamed/OS/CPS/development/TwitterClone/TwitterClone.Domain/obj/Debug/net8.0/TwitterClone.Domain.sourcelink.json
+/media/nafis-ahamed/OS/CPS/development/TwitterClone/TwitterClone.Domain/obj/Debug/net8.0/TwitterClone.Domain.dll
+/media/nafis-ahamed/OS/CPS/development/TwitterClone/TwitterClone.Domain/obj/Debug/net8.0/refint/TwitterClone.Domain.dll
+/media/nafis-ahamed/OS/CPS/development/TwitterClone/TwitterClone.Domain/obj/Debug/net8.0/TwitterClone.Domain.pdb
+/media/nafis-ahamed/OS/CPS/development/TwitterClone/TwitterClone.Domain/obj/Debug/net8.0/ref/TwitterClone.Domain.dll

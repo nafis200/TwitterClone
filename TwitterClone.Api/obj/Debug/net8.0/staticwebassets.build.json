@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "qaI6DV2ebsPQfrgyA0SPeUc6WJHnK7A4jhHQGAr8n9I=",
+  "Source": "TwitterClone.Api",
+  "BasePath": "_content/TwitterClone.Api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

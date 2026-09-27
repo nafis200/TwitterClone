@@ -43,3 +43,51 @@ code .
 
 # প্রজেক্ট ঠিকঠাক আছে কিনা দেখতে বিল্ড করুন
 dotnet build
+
+
+
+ধাপ ১: Console App তৈরি করা
+
+# dotnet new console -n TwitterClone.ConsoleApp
+
+ধাপ ২: Console App-কে Solution (.sln) ফাইলের সাথে যুক্ত করা
+
+# dotnet sln add TwitterClone.ConsoleApp/TwitterClone.ConsoleApp.csproj
+
+ধাপ ৩: Domain প্রজেক্টকে Console App-এর সাথে কানেক্ট করা (Reference করা)
+
+# dotnet add TwitterClone.ConsoleApp/TwitterClone.ConsoleApp.csproj reference TwitterClone.Domain/TwitterClone.Domain.csproj
+
+ধাপ ৪: প্রজেক্ট রান (Run) করা
+
+# cd TwitterClone.ConsoleApp
+# dotnet run
+
+
+ধাপ ১: Web API প্রজেক্ট তৈরি করা
+আপনার প্রজেক্টের মূল ফোল্ডারে (Root Directory) টার্মিনাল খুলে নিচের কমান্ডটি দিন:
+
+
+# dotnet new webapi -n TwitterClone.Api -f net8.0
+
+
+ধাপ ২: Web API-কে Solution (.sln) ফাইলের সাথে যুক্ত করা
+
+# dotnet sln add TwitterClone.Api/TwitterClone.Api.csproj
+
+
+ধাপ ৩: Domain প্রজেক্টকে Web API-এর সাথে Reference করা
+Web API যেন Domain লেয়ারের Model/Entity ব্যবহার করতে পারে:
+
+
+# dotnet add TwitterClone.Api/TwitterClone.Api.csproj reference TwitterClone.Domain/TwitterClone.Domain.csproj
+
+# Api folder above click then build with right click
+
+
+# Project Run command
+
+# dotnet run --project TwitterClone.Api
+
+
+http://localhost:5185/swagger
