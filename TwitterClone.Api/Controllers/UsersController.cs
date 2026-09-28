@@ -1,5 +1,8 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using TwitterClone.Api.Data;
+using TwitterClone.Api.Dtos;
+using TwitterClone.Domain.Entities;
 
 namespace TwitterClone.Api.Controllers
 {
@@ -7,42 +10,49 @@ namespace TwitterClone.Api.Controllers
     // api/users
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
+    // [Authorize]
+
+
     public class UsersController : ControllerBase
     {
 
-        public UsersController() { }
+        private readonly UserRepository _userRepository;
+        public UsersController(
+    UserRepository userRepository)
+        {
+            _userRepository = userRepository;
+        }
 
 
         // /api/users
         [HttpGet]
         public IActionResult GetUsers()
         {
-            return Ok(new List<object>
-            {
-                new
-                {
-                    UserId = Guid.NewGuid(),
-                    UserName = "user1",
-                },
-                new
-                {
-                    UserId = Guid.NewGuid(),
-                    UserName = "user2",
-                },
-            });
+            
+
+            return Ok(_userRepository.GetAllUsers());
         }
 
         // /api/users
         [HttpPost]
         [AllowAnonymous]
-        public IActionResult CreateUser()
+        public IActionResult CreateUser([FromBody] CreateUserDto CreateUserDto)
         {
-            return Ok(new
+            if (string.IsNullOrWhiteSpace(CreateUserDto.FirstName) ||
+        string.IsNullOrWhiteSpace(CreateUserDto.LastName) ||
+        string.IsNullOrWhiteSpace(CreateUserDto.Email))
             {
-                UserId = Guid.NewGuid(),
-                UserName = "newuser",
+                return BadRequest("All fields are required.");
+            }
+            
+
+            var createUser = _userRepository.AddUser(new User
+            {
+                FirstName = CreateUserDto.FirstName,
+                LastName = CreateUserDto.LastName,
+                Email = CreateUserDto.Email
             });
+            return Ok(createUser);
         }
 
 
