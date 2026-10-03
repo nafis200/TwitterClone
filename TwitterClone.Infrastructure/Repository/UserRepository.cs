@@ -1,14 +1,11 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using TwitterClone.Application.Interfaces;
 using TwitterClone.Domain.Entities;
 
-namespace TwitterClone.Api.Data
+namespace TwitterClone.Infrastructure.Repository
 {
-    public class UserRepository
+    public class UserRepository : IUserRepository
     {
-        private List<User> _users { get; set; } = new();
+        private readonly List<User> _users = new();
 
         public List<User> GetAllUsers()
         {
@@ -22,7 +19,7 @@ namespace TwitterClone.Api.Data
 
         public User? GetUserByEmail(string email)
         {
-            return _users.FirstOrDefault(u => u.Email == email);
+            return _users.FirstOrDefault(u => string.Equals(u.Email, email, StringComparison.OrdinalIgnoreCase));
         }
 
         public User AddUser(User user)

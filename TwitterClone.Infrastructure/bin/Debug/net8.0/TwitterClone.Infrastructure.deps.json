@@ -1,0 +1,56 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "TwitterClone.Infrastructure/1.0.0": {
+        "dependencies": {
+          "TwitterClone.Application": "1.0.0",
+          "TwitterClone.Domain": "1.0.0"
+        },
+        "runtime": {
+          "TwitterClone.Infrastructure.dll": {}
+        }
+      },
+      "TwitterClone.Application/1.0.0": {
+        "dependencies": {
+          "TwitterClone.Domain": "1.0.0"
+        },
+        "runtime": {
+          "TwitterClone.Application.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "TwitterClone.Domain/1.0.0": {
+        "runtime": {
+          "TwitterClone.Domain.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "TwitterClone.Infrastructure/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "TwitterClone.Application/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "TwitterClone.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

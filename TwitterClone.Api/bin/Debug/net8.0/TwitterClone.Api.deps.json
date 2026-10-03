@@ -11,7 +11,8 @@
           "Microsoft.AspNetCore.OpenApi": "8.0.24",
           "Swashbuckle.AspNetCore": "6.6.2",
           "TwitterClone.Application": "1.0.0",
-          "TwitterClone.Domain": "1.0.0"
+          "TwitterClone.Domain": "1.0.0",
+          "TwitterClone.Infrastructure": "1.0.0"
         },
         "runtime": {
           "TwitterClone.Api.dll": {}
@@ -93,6 +94,18 @@
             "fileVersion": "1.0.0.0"
           }
         }
+      },
+      "TwitterClone.Infrastructure/1.0.0": {
+        "dependencies": {
+          "TwitterClone.Application": "1.0.0",
+          "TwitterClone.Domain": "1.0.0"
+        },
+        "runtime": {
+          "TwitterClone.Infrastructure.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
       }
     }
   },
@@ -157,6 +170,11 @@
       "sha512": ""
     },
     "TwitterClone.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "TwitterClone.Infrastructure/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

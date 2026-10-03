@@ -62,18 +62,22 @@ API চিনবে Application, Infrastructure ও Domain-কে।
 
 Bash
 # ১. Application Layer-কে Domain-এর সাথে যুক্ত করা
+
 # dotnet add MyProjectName.Application/MyProjectName.Application.csproj reference MyProjectName.Domain/MyProjectName.Domain.csproj
 
 # ২. Infrastructure Layer-কে Application ও Domain-এর সাথে যুক্ত করা
+
 # dotnet add MyProjectName.Infrastructure/MyProjectName.Infrastructure.csproj reference MyProjectName.Application/MyProjectName.Application.csproj
 # dotnet add MyProjectName.Infrastructure/MyProjectName.Infrastructure.csproj reference MyProjectName.Domain/MyProjectName.Domain.csproj
 
 # ৩. Web API Layer-কে Application, Infrastructure ও Domain-এর সাথে যুক্ত করা
+
 # dotnet add MyProjectName.Api/MyProjectName.Api.csproj reference MyProjectName.Application/MyProjectName.Application.csproj
 # dotnet add MyProjectName.Api/MyProjectName.Api.csproj reference MyProjectName.Infrastructure/MyProjectName.Infrastructure.csproj
 # dotnet add MyProjectName.Api/MyProjectName.Api.csproj reference MyProjectName.Domain/MyProjectName.Domain.csproj
 
 # ৪. Console App-কে কানেক্ট করা (যদি ব্যবহার করেন)
+
 # dotnet add MyProjectName.ConsoleApp/MyProjectName.ConsoleApp.csproj reference MyProjectName.Domain/MyProjectName.Domain.csproj
 # dotnet add MyProjectName.ConsoleApp/MyProjectName.ConsoleApp.csproj reference MyProjectName.Application/MyProjectName.Application.csproj
 ৫. প্রজেক্ট বিল্ড ও পরীক্ষা

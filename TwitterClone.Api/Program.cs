@@ -1,4 +1,6 @@
-using TwitterClone.Api.Data;
+using TwitterClone.Application.Interfaces;
+using TwitterClone.Application.Services;
+using TwitterClone.Infrastructure.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,7 +11,9 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddSingleton<UserRepository>();
+// Singleton so the in-memory user list survives across requests
+builder.Services.AddSingleton<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IUserServices, UserServices>();
 
 var app = builder.Build();
 
@@ -27,7 +31,3 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
-
-
-
-

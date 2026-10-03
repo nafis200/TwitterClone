@@ -36,3 +36,5 @@
 /media/nafis-ahamed/OS/CPS/development/TwitterClone/TwitterClone.Api/obj/Debug/net8.0/TwitterClone.Api.pdb
 /media/nafis-ahamed/OS/CPS/development/TwitterClone/TwitterClone.Api/obj/Debug/net8.0/TwitterClone.Api.genruntimeconfig.cache
 /media/nafis-ahamed/OS/CPS/development/TwitterClone/TwitterClone.Api/obj/Debug/net8.0/ref/TwitterClone.Api.dll
+/media/nafis-ahamed/OS/CPS/development/TwitterClone/TwitterClone.Api/bin/Debug/net8.0/TwitterClone.Infrastructure.dll
+/media/nafis-ahamed/OS/CPS/development/TwitterClone/TwitterClone.Api/bin/Debug/net8.0/TwitterClone.Infrastructure.pdb
