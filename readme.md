@@ -93,3 +93,18 @@ Web API যেন Domain লেয়ারের Model/Entity ব্যবহা�
 http://localhost:5185/swagger
 
 
+ধাপ ১: Application Class Library প্রজেক্ট তৈরি করা
+
+# dotnet new classlib -n TwitterClone.Application -f net8.0
+
+ধাপ ২: Application প্রজেক্টকে Solution (.sln) ফাইলের সাথে যুক্ত করা
+
+# dotnet sln add TwitterClone.Application/TwitterClone.Application.csproj
+
+ধাপ ৩: Application প্রজেক্টে Domain প্রজেক্টের Reference যুক্ত করা
+
+# dotnet add TwitterClone.Application/TwitterClone.Application.csproj reference TwitterClone.Domain/TwitterClone.Domain.csproj
+
+# dotnet add TwitterClone.Api/TwitterClone.Api.csproj reference TwitterClone.Application/TwitterClone.Application.csproj
+
+# dotnet add TwitterClone.Api/TwitterClone.Api.csproj reference TwitterClone.Application/TwitterClone.Application.csproj

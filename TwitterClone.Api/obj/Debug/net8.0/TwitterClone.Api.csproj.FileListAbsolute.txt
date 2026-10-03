@@ -10,8 +10,10 @@
 /media/nafis-ahamed/OS/CPS/development/TwitterClone/TwitterClone.Api/bin/Debug/net8.0/Swashbuckle.AspNetCore.Swagger.dll
 /media/nafis-ahamed/OS/CPS/development/TwitterClone/TwitterClone.Api/bin/Debug/net8.0/Swashbuckle.AspNetCore.SwaggerGen.dll
 /media/nafis-ahamed/OS/CPS/development/TwitterClone/TwitterClone.Api/bin/Debug/net8.0/Swashbuckle.AspNetCore.SwaggerUI.dll
+/media/nafis-ahamed/OS/CPS/development/TwitterClone/TwitterClone.Api/bin/Debug/net8.0/TwitterClone.Application.dll
 /media/nafis-ahamed/OS/CPS/development/TwitterClone/TwitterClone.Api/bin/Debug/net8.0/TwitterClone.Domain.dll
 /media/nafis-ahamed/OS/CPS/development/TwitterClone/TwitterClone.Api/bin/Debug/net8.0/TwitterClone.Domain.pdb
+/media/nafis-ahamed/OS/CPS/development/TwitterClone/TwitterClone.Api/bin/Debug/net8.0/TwitterClone.Application.pdb
 /media/nafis-ahamed/OS/CPS/development/TwitterClone/TwitterClone.Api/obj/Debug/net8.0/TwitterClone.Api.csproj.AssemblyReference.cache
 /media/nafis-ahamed/OS/CPS/development/TwitterClone/TwitterClone.Api/obj/Debug/net8.0/TwitterClone.Api.GeneratedMSBuildEditorConfig.editorconfig
 /media/nafis-ahamed/OS/CPS/development/TwitterClone/TwitterClone.Api/obj/Debug/net8.0/TwitterClone.Api.AssemblyInfoInputs.cache

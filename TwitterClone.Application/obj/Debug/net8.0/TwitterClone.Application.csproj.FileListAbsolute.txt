@@ -1,0 +1,16 @@
+/media/nafis-ahamed/OS/CPS/development/TwitterClone/TwitterClone.Application/bin/Debug/net8.0/TwitterClone.Application.deps.json
+/media/nafis-ahamed/OS/CPS/development/TwitterClone/TwitterClone.Application/bin/Debug/net8.0/TwitterClone.Application.dll
+/media/nafis-ahamed/OS/CPS/development/TwitterClone/TwitterClone.Application/bin/Debug/net8.0/TwitterClone.Application.pdb
+/media/nafis-ahamed/OS/CPS/development/TwitterClone/TwitterClone.Application/bin/Debug/net8.0/TwitterClone.Domain.dll
+/media/nafis-ahamed/OS/CPS/development/TwitterClone/TwitterClone.Application/bin/Debug/net8.0/TwitterClone.Domain.pdb
+/media/nafis-ahamed/OS/CPS/development/TwitterClone/TwitterClone.Application/obj/Debug/net8.0/TwitterClone.Application.csproj.AssemblyReference.cache
+/media/nafis-ahamed/OS/CPS/development/TwitterClone/TwitterClone.Application/obj/Debug/net8.0/TwitterClone.Application.GeneratedMSBuildEditorConfig.editorconfig
+/media/nafis-ahamed/OS/CPS/development/TwitterClone/TwitterClone.Application/obj/Debug/net8.0/TwitterClone.Application.AssemblyInfoInputs.cache
+/media/nafis-ahamed/OS/CPS/development/TwitterClone/TwitterClone.Application/obj/Debug/net8.0/TwitterClone.Application.AssemblyInfo.cs
+/media/nafis-ahamed/OS/CPS/development/TwitterClone/TwitterClone.Application/obj/Debug/net8.0/TwitterClone.Application.csproj.CoreCompileInputs.cache
+/media/nafis-ahamed/OS/CPS/development/TwitterClone/TwitterClone.Application/obj/Debug/net8.0/TwitterClone.Application.sourcelink.json
+/media/nafis-ahamed/OS/CPS/development/TwitterClone/TwitterClone.Application/obj/Debug/net8.0/TwitterC.FAF0AF46.Up2Date
+/media/nafis-ahamed/OS/CPS/development/TwitterClone/TwitterClone.Application/obj/Debug/net8.0/TwitterClone.Application.dll
+/media/nafis-ahamed/OS/CPS/development/TwitterClone/TwitterClone.Application/obj/Debug/net8.0/refint/TwitterClone.Application.dll
+/media/nafis-ahamed/OS/CPS/development/TwitterClone/TwitterClone.Application/obj/Debug/net8.0/TwitterClone.Application.pdb
+/media/nafis-ahamed/OS/CPS/development/TwitterClone/TwitterClone.Application/obj/Debug/net8.0/ref/TwitterClone.Application.dll
