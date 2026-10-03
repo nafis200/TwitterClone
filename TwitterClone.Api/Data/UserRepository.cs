@@ -8,10 +8,7 @@ namespace TwitterClone.Api.Data
 {
     public class UserRepository
     {
-
         private List<User> _users { get; set; } = new();
-
-
 
         public List<User> GetAllUsers()
         {
@@ -23,10 +20,14 @@ namespace TwitterClone.Api.Data
             return _users.FirstOrDefault(u => u.Id == id);
         }
 
+        public User? GetUserByEmail(string email)
+        {
+            return _users.FirstOrDefault(u => u.Email == email);
+        }
+
         public User AddUser(User user)
         {
             _users.Add(user);
-
             return user;
         }
 
@@ -34,7 +35,6 @@ namespace TwitterClone.Api.Data
         {
             _users.RemoveAll(u => u.Id == user.Id);
             _users.Add(user);
-
             return user;
         }
 

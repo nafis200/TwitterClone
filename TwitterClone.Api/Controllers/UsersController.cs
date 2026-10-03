@@ -6,96 +6,115 @@ using TwitterClone.Domain.Entities;
 
 namespace TwitterClone.Api.Controllers
 {
-
-    // api/users
     [Route("api/[controller]")]
     [ApiController]
     // [Authorize]
-
-
     public class UsersController : ControllerBase
     {
-
         private readonly UserRepository _userRepository;
-        public UsersController(
-    UserRepository userRepository)
+
+        public UsersController(UserRepository userRepository)
         {
             _userRepository = userRepository;
         }
 
-
-        // /api/users
+        // GET /api/users
         [HttpGet]
         public IActionResult GetUsers()
         {
-            
-
             return Ok(_userRepository.GetAllUsers());
         }
 
-        // /api/users
-        [HttpPost]
-        [AllowAnonymous]
-        public IActionResult CreateUser([FromBody] CreateUserDto CreateUserDto)
-        {
-            if (string.IsNullOrWhiteSpace(CreateUserDto.FirstName) ||
-        string.IsNullOrWhiteSpace(CreateUserDto.LastName) ||
-        string.IsNullOrWhiteSpace(CreateUserDto.Email))
-            {
-                return BadRequest("All fields are required.");
-            }
-            
-
-            var createUser = _userRepository.AddUser(new User
-            {
-                FirstName = CreateUserDto.FirstName,
-                LastName = CreateUserDto.LastName,
-                Email = CreateUserDto.Email
-            });
-            return Ok(createUser);
-        }
-
-
-        // /api/users/{id}
+        // GET /api/users/{id}
         [HttpGet("{id}")]
         public IActionResult GetUserById([FromRoute] Guid id)
         {
-            return Ok(new
+            var user = _userRepository.GetUserById(id);
+            if (user == null)
             {
-                UserId = id,
-                UserName = "user" + id.ToString(),
-            });
+                return NotFound(new { Message = $"User with ID '{id}' was not found." });
+            }
+
+            return Ok(user);
         }
 
+        // POST /api/users
+        [HttpPost]
+        [AllowAnonymous]
+        public IActionResult CreateUser([FromBody] CreateUserDto createUserDto)
+        {
+            if (string.IsNullOrWhiteSpace(createUserDto.FirstName) ||
+                string.IsNullOrWhiteSpace(createUserDto.LastName) ||
+                string.IsNullOrWhiteSpace(createUserDto.Email))
+            {
+                return BadRequest(new { Message = "First name, last name, and email are required." });
+            }
+
+            // Check if email already exists
+            var existingUser = _userRepository.GetUserByEmail(createUserDto.Email);
+            if (existingUser != null)
+            {
+                return Conflict(new { Message = "User with this email already exists." });
+            }
+
+            var newUser = new User
+            {
+                FirstName = createUserDto.FirstName,
+                LastName = createUserDto.LastName,
+                Email = createUserDto.Email
+            };
+
+            var createdUser = _userRepository.AddUser(newUser);
+
+            return CreatedAtAction(nameof(GetUserById), new { id = createdUser.Id }, createdUser);
+        }
 
         // PUT /api/users/{id}
         [HttpPut("{id}")]
-        public IActionResult UpdateUser([FromRoute] Guid id)
+        public IActionResult UpdateUser([FromRoute] Guid id, [FromBody] CreateUserDto updateUserDto)
         {
-            return Ok(new
+            var user = _userRepository.GetUserById(id);
+            if (user == null)
             {
-                UserId = id,
-                UserName = "updateduser" + id.ToString(),
-            });
+                return NotFound(new { Message = $"User with ID '{id}' was not found." });
+            }
+
+            if (string.IsNullOrWhiteSpace(updateUserDto.FirstName) ||
+                string.IsNullOrWhiteSpace(updateUserDto.LastName) ||
+                string.IsNullOrWhiteSpace(updateUserDto.Email))
+            {
+                return BadRequest(new { Message = "First name, last name, and email are required." });
+            }
+
+            // If the email is changing, verify the new email is not taken by another user
+            if (!string.Equals(user.Email, updateUserDto.Email, StringComparison.OrdinalIgnoreCase))
+            {
+                var existingUserWithEmail = _userRepository.GetUserByEmail(updateUserDto.Email);
+                if (existingUserWithEmail != null)
+                {
+                    return Conflict(new { Message = "User with this email already exists." });
+                }
+            }
+
+            user.FirstName = updateUserDto.FirstName;
+            user.LastName = updateUserDto.LastName;
+            user.Email = updateUserDto.Email;
+
+            var updatedUser = _userRepository.UpdateUser(user);
+            return Ok(updatedUser);
         }
 
 
-        // PATCH /api/users/{id}/phoneNumber
-        [HttpPatch("{id}/phoneNumber")]
-        public IActionResult UpdateUserPhoneNumber([FromRoute] Guid id, [FromBody] string phoneNumber)
-        {
-            return Ok("hello");
-
-        }
 
         // DELETE /api/users/{id}
         [HttpDelete("{id}")]
         public IActionResult DeleteUser([FromRoute] Guid id)
         {
+
             return Ok(new
             {
                 UserId = id,
-                Message = "User deleted successfully.",
+                Message = "User deleted successfully."
             });
         }
     }
