@@ -84,6 +84,23 @@ namespace TwitterClone.Application.Services
             return user is not null && _userRepository.DeleteUser(user);
         }
 
+        public UserDto? UpdateUserPhoneNumber(Guid id, string phoneNumber)
+        {
+            if (string.IsNullOrWhiteSpace(phoneNumber))
+            {
+                return null;
+            }
+
+            var user = _userRepository.GetUserById(id);
+            if (user is null)
+            {
+                return null;
+            }
+
+            user.PhoneNumber = phoneNumber;
+            return ToDto(_userRepository.UpdateUser(user));
+        }
+
         private static UserDto ToDto(User user)
         {
             return new UserDto

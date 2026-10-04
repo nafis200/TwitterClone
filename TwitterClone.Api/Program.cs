@@ -1,6 +1,6 @@
 using TwitterClone.Application.Interfaces;
 using TwitterClone.Application.Services;
-using TwitterClone.Infrastructure.Repository;
+using TwitterClone.Infrastructure.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,9 +11,11 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-// Singleton so the in-memory user list survives across requests
+// Singleton so the in-memory user and tweet lists survive across requests
 builder.Services.AddSingleton<IUserRepository, UserRepository>();
+builder.Services.AddSingleton<ITweetRepository, TweetRepository>();
 builder.Services.AddScoped<IUserServices, UserServices>();
+builder.Services.AddScoped<ITweetService, TweetService>();
 
 var app = builder.Build();
 
