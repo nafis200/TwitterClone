@@ -14,10 +14,10 @@ namespace TwitterClone.Api.Controllers
     public class UsersController : ControllerBase
     {
 
-        private readonly IUserServices _userService;
+        private readonly IUserService _userService;
 
         public UsersController(
-            IUserServices userService)
+            IUserService userService)
         {
             _userService = userService;
         }
