@@ -3,8 +3,10 @@
 /media/nafis-ahamed/OS/CPS/development/TwitterClone/TwitterClone.Infrastructure/bin/Debug/net8.0/TwitterClone.Infrastructure.pdb
 /media/nafis-ahamed/OS/CPS/development/TwitterClone/TwitterClone.Infrastructure/bin/Debug/net8.0/TwitterClone.Application.dll
 /media/nafis-ahamed/OS/CPS/development/TwitterClone/TwitterClone.Infrastructure/bin/Debug/net8.0/TwitterClone.Domain.dll
+/media/nafis-ahamed/OS/CPS/development/TwitterClone/TwitterClone.Infrastructure/bin/Debug/net8.0/TwitterClone.Utilities.dll
 /media/nafis-ahamed/OS/CPS/development/TwitterClone/TwitterClone.Infrastructure/bin/Debug/net8.0/TwitterClone.Application.pdb
 /media/nafis-ahamed/OS/CPS/development/TwitterClone/TwitterClone.Infrastructure/bin/Debug/net8.0/TwitterClone.Domain.pdb
+/media/nafis-ahamed/OS/CPS/development/TwitterClone/TwitterClone.Infrastructure/bin/Debug/net8.0/TwitterClone.Utilities.pdb
 /media/nafis-ahamed/OS/CPS/development/TwitterClone/TwitterClone.Infrastructure/obj/Debug/net8.0/TwitterClone.Infrastructure.csproj.AssemblyReference.cache
 /media/nafis-ahamed/OS/CPS/development/TwitterClone/TwitterClone.Infrastructure/obj/Debug/net8.0/TwitterClone.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
 /media/nafis-ahamed/OS/CPS/development/TwitterClone/TwitterClone.Infrastructure/obj/Debug/net8.0/TwitterClone.Infrastructure.AssemblyInfoInputs.cache

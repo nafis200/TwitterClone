@@ -2,6 +2,8 @@
 using TwitterClone.Application.Interfaces;
 using TwitterClone.Application.Mappings;
 using TwitterClone.Domain.Entities;
+using TwitterClone.Utilities.Extensions;
+
 
 namespace TwitterClone.Application.Services
 {

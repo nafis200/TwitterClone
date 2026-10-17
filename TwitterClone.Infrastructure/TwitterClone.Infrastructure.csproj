@@ -3,6 +3,11 @@
   <ItemGroup>
     <ProjectReference Include="..\TwitterClone.Application\TwitterClone.Application.csproj" />
     <ProjectReference Include="..\TwitterClone.Domain\TwitterClone.Domain.csproj" />
+    <ProjectReference Include="..\TwitterClone.Utilities\TwitterClone.Utilities.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="8.0.2" />
   </ItemGroup>
 
   <PropertyGroup>

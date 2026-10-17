@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "s0ZxHQ0g+po=",
+  "dgSpecHash": "5UsIVGBtK8A=",
   "success": true,
   "projectFilePath": "/media/nafis-ahamed/OS/CPS/development/TwitterClone/TwitterClone.Application/TwitterClone.Application.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "/home/nafis-ahamed/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/8.0.2/microsoft.extensions.dependencyinjection.abstractions.8.0.2.nupkg.sha512"
+  ],
   "logs": []
 }

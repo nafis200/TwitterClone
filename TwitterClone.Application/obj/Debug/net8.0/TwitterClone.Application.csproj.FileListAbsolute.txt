@@ -2,7 +2,9 @@
 /media/nafis-ahamed/OS/CPS/development/TwitterClone/TwitterClone.Application/bin/Debug/net8.0/TwitterClone.Application.dll
 /media/nafis-ahamed/OS/CPS/development/TwitterClone/TwitterClone.Application/bin/Debug/net8.0/TwitterClone.Application.pdb
 /media/nafis-ahamed/OS/CPS/development/TwitterClone/TwitterClone.Application/bin/Debug/net8.0/TwitterClone.Domain.dll
+/media/nafis-ahamed/OS/CPS/development/TwitterClone/TwitterClone.Application/bin/Debug/net8.0/TwitterClone.Utilities.dll
 /media/nafis-ahamed/OS/CPS/development/TwitterClone/TwitterClone.Application/bin/Debug/net8.0/TwitterClone.Domain.pdb
+/media/nafis-ahamed/OS/CPS/development/TwitterClone/TwitterClone.Application/bin/Debug/net8.0/TwitterClone.Utilities.pdb
 /media/nafis-ahamed/OS/CPS/development/TwitterClone/TwitterClone.Application/obj/Debug/net8.0/TwitterClone.Application.csproj.AssemblyReference.cache
 /media/nafis-ahamed/OS/CPS/development/TwitterClone/TwitterClone.Application/obj/Debug/net8.0/TwitterClone.Application.GeneratedMSBuildEditorConfig.editorconfig
 /media/nafis-ahamed/OS/CPS/development/TwitterClone/TwitterClone.Application/obj/Debug/net8.0/TwitterClone.Application.AssemblyInfoInputs.cache

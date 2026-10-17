@@ -108,3 +108,60 @@ http://localhost:5185/swagger
 # dotnet add TwitterClone.Api/TwitterClone.Api.csproj reference TwitterClone.Application/TwitterClone.Application.csproj
 
 # dotnet add TwitterClone.Api/TwitterClone.Api.csproj reference TwitterClone.Application/TwitterClone.Application.csproj
+
+
+Ulities class create
+
+# dotnet new classlib -n TwitterClone.Utilities
+
+# dotnet sln add TwitterClone.Utilities/TwitterClone.Utilities.csproj
+
+# dotnet add TwitterClone.Application/TwitterClone.Application.csproj reference TwitterClone.Utilities/TwitterClone.Utilities.csproj
+
+# dotnet add TwitterClone.Api/TwitterClone.Api.csproj reference TwitterClone.Utilities/TwitterClone.Utilities.csproj
+
+# dotnet add TwitterClone.Infrastructure/TwitterClone.Infrastructure.csproj reference TwitterClone.Utilities/TwitterClone.Utilities.csproj
+
+
+https://github.com/MehrajShakil/TwitterClone/pull/8
+
+
+DependencyInjection.cs যোগ করা (Program.cs থেকে service registration সরিয়ে আলাদা ফাইলে)
+
+ধাপ ১: Application আর Infrastructure প্রজেক্টে DI package যোগ করা
+(classlib প্রজেক্টে IServiceCollection নিজে থেকে থাকে না, তাই এই package লাগে)
+
+# dotnet add TwitterClone.Application/TwitterClone.Application.csproj package Microsoft.Extensions.DependencyInjection.Abstractions --version 8.0.2
+
+# dotnet add TwitterClone.Infrastructure/TwitterClone.Infrastructure.csproj package Microsoft.Extensions.DependencyInjection.Abstractions --version 8.0.2
+
+ধাপ ২: দুটো ফাইল তৈরি করা
+- TwitterClone.Application/DependencyInjection.cs  -> AddApplication() (সব Service, Scoped)
+- TwitterClone.Infrastructure/DependencyInjection.cs -> AddInfrastructure() (সব Repository, Singleton)
+
+সতর্কতা: IDE-র "Generate interface IServiceCollection" quick-fix এ ক্লিক করবেন না।
+এটা একটা ভুয়া IServiceCollection বানিয়ে দেয়, যার ফলে build ভেঙে যায়।
+এর বদলে উপরের package যোগ করুন, আর ফাইলের উপরে লিখুন: using Microsoft.Extensions.DependencyInjection;
+
+ধাপ ৩: Program.cs এ namespace যোগ করে method দুটো call করা
+
+using TwitterClone.Application;
+using TwitterClone.Infrastructure;
+
+builder.Services.AddApplication();
+builder.Services.AddInfrastructure();
+
+ধাপ ৪: Build করে দেখা
+
+# dotnet build
+
+
+.gitignore যোগ করা (bin/ আর obj/ যেন git এ না যায়)
+
+# dotnet new gitignore
+
+আগে থেকে commit হয়ে থাকা bin/ obj/ কে git থেকে বের করতে (ফাইল ডিস্ক থেকে মুছবে না, শুধু git tracking বন্ধ হবে):
+
+# git rm -r --cached TwitterClone.Api/bin TwitterClone.Api/obj TwitterClone.Application/bin TwitterClone.Application/obj TwitterClone.Domain/bin TwitterClone.Domain/obj TwitterClone.Infrastructure/bin TwitterClone.Infrastructure/obj TwitterClone.ConsoleApp/bin TwitterClone.ConsoleApp/obj
+
+

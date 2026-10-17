@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TwitterClone.Application", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TwitterClone.Infrastructure", "TwitterClone.Infrastructure\TwitterClone.Infrastructure.csproj", "{9A3D084D-414B-45CC-BCB2-2DD8E35B32E7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TwitterClone.Utilities", "TwitterClone.Utilities\TwitterClone.Utilities.csproj", "{4A247015-AA7A-484E-8727-0BCEF586677C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,5 +44,9 @@ Global
 		{9A3D084D-414B-45CC-BCB2-2DD8E35B32E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9A3D084D-414B-45CC-BCB2-2DD8E35B32E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9A3D084D-414B-45CC-BCB2-2DD8E35B32E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A247015-AA7A-484E-8727-0BCEF586677C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A247015-AA7A-484E-8727-0BCEF586677C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A247015-AA7A-484E-8727-0BCEF586677C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A247015-AA7A-484E-8727-0BCEF586677C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

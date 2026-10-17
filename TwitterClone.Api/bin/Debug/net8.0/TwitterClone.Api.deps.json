@@ -12,7 +12,8 @@
           "Swashbuckle.AspNetCore": "6.6.2",
           "TwitterClone.Application": "1.0.0",
           "TwitterClone.Domain": "1.0.0",
-          "TwitterClone.Infrastructure": "1.0.0"
+          "TwitterClone.Infrastructure": "1.0.0",
+          "TwitterClone.Utilities": "1.0.0"
         },
         "runtime": {
           "TwitterClone.Api.dll": {}
@@ -30,6 +31,14 @@
         }
       },
       "Microsoft.Extensions.ApiDescription.Server/6.0.5": {},
+      "Microsoft.Extensions.DependencyInjection.Abstractions/8.0.2": {
+        "runtime": {
+          "lib/net8.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {
+            "assemblyVersion": "8.0.0.0",
+            "fileVersion": "8.0.1024.46610"
+          }
+        }
+      },
       "Microsoft.OpenApi/1.6.14": {
         "runtime": {
           "lib/netstandard2.0/Microsoft.OpenApi.dll": {
@@ -78,7 +87,9 @@
       },
       "TwitterClone.Application/1.0.0": {
         "dependencies": {
-          "TwitterClone.Domain": "1.0.0"
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.2",
+          "TwitterClone.Domain": "1.0.0",
+          "TwitterClone.Utilities": "1.0.0"
         },
         "runtime": {
           "TwitterClone.Application.dll": {
@@ -97,11 +108,21 @@
       },
       "TwitterClone.Infrastructure/1.0.0": {
         "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.2",
           "TwitterClone.Application": "1.0.0",
-          "TwitterClone.Domain": "1.0.0"
+          "TwitterClone.Domain": "1.0.0",
+          "TwitterClone.Utilities": "1.0.0"
         },
         "runtime": {
           "TwitterClone.Infrastructure.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "TwitterClone.Utilities/1.0.0": {
+        "runtime": {
+          "TwitterClone.Utilities.dll": {
             "assemblyVersion": "1.0.0",
             "fileVersion": "1.0.0.0"
           }
@@ -128,6 +149,13 @@
       "sha512": "sha512-Ckb5EDBUNJdFWyajfXzUIMRkhf52fHZOQuuZg/oiu8y7zDCVwD0iHhew6MnThjHmevanpxL3f5ci2TtHQEN6bw==",
       "path": "microsoft.extensions.apidescription.server/6.0.5",
       "hashPath": "microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512"
+    },
+    "Microsoft.Extensions.DependencyInjection.Abstractions/8.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-3iE7UF7MQkCv1cxzCahz+Y/guQbTqieyxyaWKhrRO91itI9cOKO76OHeQDahqG4MmW5umr3CcCvGmK92lWNlbg==",
+      "path": "microsoft.extensions.dependencyinjection.abstractions/8.0.2",
+      "hashPath": "microsoft.extensions.dependencyinjection.abstractions.8.0.2.nupkg.sha512"
     },
     "Microsoft.OpenApi/1.6.14": {
       "type": "package",
@@ -175,6 +203,11 @@
       "sha512": ""
     },
     "TwitterClone.Infrastructure/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "TwitterClone.Utilities/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
