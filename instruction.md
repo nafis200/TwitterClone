@@ -109,3 +109,11 @@ Bash
 rm -rf */bin */obj
 dotnet restore
 dotnet build
+
+# JWT bearer setup
+
+# dotnet add TwitterClone.Api package Microsoft.AspNetCore.Authentication.JwtBearer --version 8.0.11
+
+# dotnet add TwitterClone.Infrastructure package Microsoft.Extensions.Identity.Core --version 8.0.11
+
+# dotnet add TwitterClone.Infrastructure package Microsoft.IdentityModel.JsonWebTokens --version 7.1.2
