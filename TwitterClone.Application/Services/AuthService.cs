@@ -1,4 +1,4 @@
-using TwitterClone.Application.Dtos;
+﻿using TwitterClone.Application.Dtos;
 using TwitterClone.Application.Interfaces;
 using TwitterClone.Application.Mappings;
 
@@ -22,35 +22,23 @@ namespace TwitterClone.Application.Services
 
         public AuthResponseDto? Login(LoginDto loginDto)
         {
-            if (string.IsNullOrWhiteSpace(loginDto.Email) || string.IsNullOrWhiteSpace(loginDto.Password))
-            {
-                return null;
-            }
-
             var user = _userRepository.GetUserByEmail(loginDto.Email);
-
-            // Unknown email: fail the same way a wrong password does, so the
-            // response does not reveal which accounts exist.
-            if (user is null)
-            {
-                return null;
-            }
 
             var userAuthorized = _passwordHasher.VerifyPassword(loginDto.Password, user.PasswordHash);
 
-            if (!userAuthorized)
+            if (userAuthorized)
             {
-                return null;
+                var (token, expiryTime) = _tokenService.GetToken(user.ToDto());
+
+                return new AuthResponseDto
+                {
+                    AccessToken = token,
+                    ExpiryAt = expiryTime,
+                    UserDto = user.ToDto()
+                };
             }
 
-            var (token, expiryTime) = _tokenService.GetToken(user.ToDto());
-
-            return new AuthResponseDto
-            {
-                AccessToken = token,
-                ExpiryAt = expiryTime,
-                UserDto = user.ToDto()
-            };
+            return null;
         }
     }
 }

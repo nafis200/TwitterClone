@@ -16,7 +16,6 @@ namespace TwitterClone.Application.Services
         private readonly IFollowRepository _followRepository;
         private readonly IMessageRepository _messageRepository;
         private readonly INotificationRepository _notificationRepository;
-        private readonly IPasswordHasher _passwordHasher;
 
         public UserService(
             IUserRepository userRepository,
@@ -27,8 +26,7 @@ namespace TwitterClone.Application.Services
             IRetweetRepository retweetRepository,
             IFollowRepository followRepository,
             IMessageRepository messageRepository,
-            INotificationRepository notificationRepository,
-            IPasswordHasher passwordHasher)
+            INotificationRepository notificationRepository)
         {
             _userRepository = userRepository;
             _tweetRepository = tweetRepository;
@@ -39,15 +37,13 @@ namespace TwitterClone.Application.Services
             _followRepository = followRepository;
             _messageRepository = messageRepository;
             _notificationRepository = notificationRepository;
-            _passwordHasher = passwordHasher;
         }
 
         public UserDto? CreateUser(CreateUserDto createUserDto)
         {
             if (string.IsNullOrWhiteSpace(createUserDto.FirstName) ||
                string.IsNullOrWhiteSpace(createUserDto.LastName) ||
-               string.IsNullOrWhiteSpace(createUserDto.Email) ||
-               string.IsNullOrWhiteSpace(createUserDto.Password))
+               string.IsNullOrWhiteSpace(createUserDto.Email))
             {
                 return null;
             }
@@ -63,9 +59,7 @@ namespace TwitterClone.Application.Services
             {
                 FirstName = createUserDto.FirstName.Trim(),
                 LastName = createUserDto.LastName.Trim(),
-                Email = createUserDto.Email.Trim(),
-                // The password is never stored as-is, only as a salted hash.
-                PasswordHash = _passwordHasher.HashPassword(createUserDto.Password)
+                Email = createUserDto.Email.Trim()
             });
 
             return createdUser.ToDto();
