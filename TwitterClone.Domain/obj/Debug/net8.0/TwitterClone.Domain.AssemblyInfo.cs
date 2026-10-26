@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TwitterClone.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8de346029d8831e1a63632b436b92478339849d3")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+65ecf13a8918f9eb8498a6747d6ca15594920738")]
 [assembly: System.Reflection.AssemblyProductAttribute("TwitterClone.Domain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TwitterClone.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

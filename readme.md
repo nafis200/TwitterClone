@@ -165,3 +165,19 @@ builder.Services.AddInfrastructure();
 # git rm -r --cached TwitterClone.Api/bin TwitterClone.Api/obj TwitterClone.Application/bin TwitterClone.Application/obj TwitterClone.Domain/bin TwitterClone.Domain/obj TwitterClone.Infrastructure/bin TwitterClone.Infrastructure/obj TwitterClone.ConsoleApp/bin TwitterClone.ConsoleApp/obj
 
 
+Step 1: PostgreSQL-এর জন্য NuGet প্যাকেজ ইন্সটল করুন
+আপনার প্রজেক্টের টার্মিনালে (Terminal) গিয়ে নিচের কমান্ডগুলো রান করুন:
+
+১. Infrastructure প্রজেক্টে PostgreSQL Provider যোগ করতে:
+
+
+# dotnet add TwitterClone.Infrastructure package Npgsql.EntityFrameworkCore.PostgreSQL --version 8.0.2
+(এখানে প্রজেক্টের নাম আপনার মতো TwitterClone.Infrastructure বা আপনার প্রজেক্টের নাম হতে পারে)
+
+২. Api প্রজেক্টে EF Core Design প্যাকেজ যোগ করতে:
+
+# dotnet add TwitterClone.Api package Microsoft.EntityFrameworkCore.Design --version 8.0.2
+
+৩. Entity Framework Tool (যদি আগে ইন্সটল করা না থাকে):
+
+# dotnet tool install --global dotnet-ef --version 8.0.2

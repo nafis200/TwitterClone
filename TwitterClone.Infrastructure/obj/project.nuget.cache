@@ -1,12 +1,18 @@
 {
   "version": 2,
-  "dgSpecHash": "1A3csanCITg=",
+  "dgSpecHash": "VNKIlW2tdaA=",
   "success": true,
   "projectFilePath": "/media/nafis-ahamed/OS/CPS/development/TwitterClone/TwitterClone.Infrastructure/TwitterClone.Infrastructure.csproj",
   "expectedPackageFiles": [
     "/home/nafis-ahamed/.nuget/packages/microsoft.aspnetcore.cryptography.internal/8.0.32/microsoft.aspnetcore.cryptography.internal.8.0.32.nupkg.sha512",
     "/home/nafis-ahamed/.nuget/packages/microsoft.aspnetcore.cryptography.keyderivation/8.0.32/microsoft.aspnetcore.cryptography.keyderivation.8.0.32.nupkg.sha512",
     "/home/nafis-ahamed/.nuget/packages/microsoft.bcl.cryptography/10.0.2/microsoft.bcl.cryptography.10.0.2.nupkg.sha512",
+    "/home/nafis-ahamed/.nuget/packages/microsoft.entityframeworkcore/8.0.2/microsoft.entityframeworkcore.8.0.2.nupkg.sha512",
+    "/home/nafis-ahamed/.nuget/packages/microsoft.entityframeworkcore.abstractions/8.0.2/microsoft.entityframeworkcore.abstractions.8.0.2.nupkg.sha512",
+    "/home/nafis-ahamed/.nuget/packages/microsoft.entityframeworkcore.analyzers/8.0.2/microsoft.entityframeworkcore.analyzers.8.0.2.nupkg.sha512",
+    "/home/nafis-ahamed/.nuget/packages/microsoft.entityframeworkcore.relational/8.0.2/microsoft.entityframeworkcore.relational.8.0.2.nupkg.sha512",
+    "/home/nafis-ahamed/.nuget/packages/microsoft.extensions.caching.abstractions/8.0.0/microsoft.extensions.caching.abstractions.8.0.0.nupkg.sha512",
+    "/home/nafis-ahamed/.nuget/packages/microsoft.extensions.caching.memory/8.0.0/microsoft.extensions.caching.memory.8.0.0.nupkg.sha512",
     "/home/nafis-ahamed/.nuget/packages/microsoft.extensions.configuration.abstractions/8.0.0/microsoft.extensions.configuration.abstractions.8.0.0.nupkg.sha512",
     "/home/nafis-ahamed/.nuget/packages/microsoft.extensions.configuration.binder/8.0.2/microsoft.extensions.configuration.binder.8.0.2.nupkg.sha512",
     "/home/nafis-ahamed/.nuget/packages/microsoft.extensions.dependencyinjection/8.0.1/microsoft.extensions.dependencyinjection.8.0.1.nupkg.sha512",
@@ -21,6 +27,8 @@
     "/home/nafis-ahamed/.nuget/packages/microsoft.identitymodel.jsonwebtokens/8.23.0/microsoft.identitymodel.jsonwebtokens.8.23.0.nupkg.sha512",
     "/home/nafis-ahamed/.nuget/packages/microsoft.identitymodel.logging/8.23.0/microsoft.identitymodel.logging.8.23.0.nupkg.sha512",
     "/home/nafis-ahamed/.nuget/packages/microsoft.identitymodel.tokens/8.23.0/microsoft.identitymodel.tokens.8.23.0.nupkg.sha512",
+    "/home/nafis-ahamed/.nuget/packages/npgsql/8.0.2/npgsql.8.0.2.nupkg.sha512",
+    "/home/nafis-ahamed/.nuget/packages/npgsql.entityframeworkcore.postgresql/8.0.2/npgsql.entityframeworkcore.postgresql.8.0.2.nupkg.sha512",
     "/home/nafis-ahamed/.nuget/packages/system.formats.asn1/10.0.2/system.formats.asn1.10.0.2.nupkg.sha512",
     "/home/nafis-ahamed/.nuget/packages/system.identitymodel.tokens.jwt/8.23.0/system.identitymodel.tokens.jwt.8.23.0.nupkg.sha512"
   ],
