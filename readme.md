@@ -181,3 +181,14 @@ Step 1: PostgreSQL-এর জন্য NuGet প্যাকেজ ইন্স�
 ৩. Entity Framework Tool (যদি আগে ইন্সটল করা না থাকে):
 
 # dotnet tool install --global dotnet-ef --version 8.0.2
+
+
+# Connection string of neon
+
+{
+  ...
+  "ConnectionStrings": {
+    "DefaultConnection": "Host=ep-late-dream-b5clkohq-pooler.c-7.us-east-2.aws.neon.tech; Database=neondb; Username=neondb_owner; Password=npg_bTlCN6g5ZuUn; SSL Mode=VerifyFull; Channel Binding=Require;"
+  },
+  ...
+}
