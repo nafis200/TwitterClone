@@ -192,3 +192,8 @@ Step 1: PostgreSQL-এর জন্য NuGet প্যাকেজ ইন্স�
   },
   ...
 }
+
+
+# Migrations
+
+# dotnet ef migrations add InitialCreate --project TwitterClone.Infrastructure --startup-project TwitterClone.Api --output-dir Persistence/Migrations
