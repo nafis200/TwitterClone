@@ -62,7 +62,8 @@ namespace TwitterClone.Application.Services
             {
                 FirstName = createUserDto.FirstName.Trim(),
                 LastName = createUserDto.LastName.Trim(),
-                Email = createUserDto.Email.Trim(),
+                // Stored lower-case so login and the unique index are case-insensitive.
+                Email = createUserDto.Email.Trim().ToLowerInvariant(),
                 PasswordHash = _passwordHasher.Hash(createUserDto.ToDto(), createUserDto.Password),
             });
 

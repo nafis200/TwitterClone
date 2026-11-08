@@ -1,15 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TwitterClone.Application.Dtos
+﻿namespace TwitterClone.Application.Dtos
 {
     public class AuthResponseDto
     {
+        public string TokenType => "Bearer";
         public required string AccessToken { get; set; }
-        public required DateTime ExpiryAt { get; set; }
-        public required UserDto UserDto { get; set; }
+        public required DateTime AccessTokenExpiresAt { get; set; }
+        public required string RefreshToken { get; set; }
+        public required DateTime RefreshTokenExpiresAt { get; set; }
+        public required UserDto User { get; set; }
     }
 }

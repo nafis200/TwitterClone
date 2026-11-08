@@ -35,6 +35,13 @@ namespace TwitterClone.Infrastructure
             services.AddScoped<INotificationRepository, NotificationRepository>();
             services.AddScoped<IRetweetRepository, RetweetRepository>();
 
+            services.AddScoped<IRefreshTokenRepository, RefreshTokenRepository>();
+
+            var jwtSettings = configuration.GetSection(JwtSettings.SectionName).Get<JwtSettings>()
+                ?? throw new InvalidOperationException($"The '{JwtSettings.SectionName}' configuration section is missing.");
+            jwtSettings.Validate();
+            services.AddSingleton(jwtSettings);
+
             services.AddScoped<ITokenService, JwtTokenService>();
             services.AddScoped<IPasswordHasher, PasswordHasher>();
 

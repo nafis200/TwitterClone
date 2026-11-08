@@ -8,13 +8,10 @@ namespace TwitterClone.Infrastructure.Repositories
     {
         private readonly TwitterCloneDbContext _context;
 
-        public UserRepository(
-            TwitterCloneDbContext context)
+        public UserRepository(TwitterCloneDbContext context)
         {
             _context = context;
         }
-
-        private readonly List<User> _users = new List<User>();
 
         public User AddUser(User user)
         {
@@ -26,30 +23,34 @@ namespace TwitterClone.Infrastructure.Repositories
 
         public User UpdateUser(User user)
         {
-            _users.RemoveAll(u => u.Id == user.Id);
-            _users.Add(user);
+            _context.Users.Update(user);
+            _context.SaveChanges();
+
             return user;
         }
 
         public bool DeleteUser(User user)
         {
-            return _users.Remove(user);
+            _context.Users.Remove(user);
+
+            return _context.SaveChanges() > 0;
         }
 
         public User? GetUserById(Guid id)
         {
-            return _users.SingleOrDefault(u => u.Id == id);
+            return _context.Users.Find(id);
         }
 
         public List<User> GetUsers()
         {
-            return _users.ToList();
+            return _context.Users.ToList();
         }
 
         public User? GetUserByEmail(string email)
         {
-            return _users.SingleOrDefault(u =>
-                string.Equals(u.Email, email.Trim(), StringComparison.OrdinalIgnoreCase));
+            var normalizedEmail = email.Trim().ToLowerInvariant();
+
+            return _context.Users.FirstOrDefault(u => u.Email.ToLower() == normalizedEmail);
         }
     }
 }

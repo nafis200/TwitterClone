@@ -1,6 +1,55 @@
-@TwitterClone.Api_HostAddress = http://localhost:5185
+@host = http://localhost:5185
+# Paste values from a register/login response here.
+@accessToken =
+@refreshToken =
 
-GET {{TwitterClone.Api_HostAddress}}/weatherforecast/
-Accept: application/json
+### Register
+POST {{host}}/api/auth/register
+Content-Type: application/json
 
-###
+{
+  "firstName": "Ada",
+  "lastName": "Lovelace",
+  "email": "ada@example.com",
+  "password": "password123"
+}
+
+### Login
+POST {{host}}/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "ada@example.com",
+  "password": "password123"
+}
+
+### Current user
+GET {{host}}/api/auth/me
+Authorization: Bearer {{accessToken}}
+
+### Get a new access token (the refresh token is single-use; use the new one it returns)
+POST {{host}}/api/auth/refresh
+Content-Type: application/json
+
+{
+  "refreshToken": "{{refreshToken}}"
+}
+
+### Change password (signs out all other sessions, returns a fresh session)
+POST {{host}}/api/auth/change-password
+Authorization: Bearer {{accessToken}}
+Content-Type: application/json
+
+{
+  "currentPassword": "password123",
+  "newPassword": "newpassword123"
+}
+
+### Logout
+POST {{host}}/api/auth/logout
+Authorization: Bearer {{accessToken}}
+Content-Type: application/json
+
+{
+  "refreshToken": "{{refreshToken}}"
+}
