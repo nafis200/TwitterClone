@@ -1,11 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations;
 
 namespace TwitterClone.Application.Dtos
 {
     public class CreateTweetDto : IValidatableObject
     {
-        public required Guid UserId { get; set; }
-
         [Required]
         public required string Content { get; set; }
 

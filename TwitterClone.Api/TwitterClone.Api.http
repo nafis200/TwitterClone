@@ -53,3 +53,36 @@ Content-Type: application/json
 {
   "refreshToken": "{{refreshToken}}"
 }
+
+### ---------- Tweets (all need the access token) ----------
+@tweetId =
+
+### Create a tweet (author = the user inside the token)
+POST {{host}}/api/tweets
+Authorization: Bearer {{accessToken}}
+Content-Type: application/json
+
+{
+  "content": "My first tweet!"
+}
+
+### All tweets
+GET {{host}}/api/tweets
+Authorization: Bearer {{accessToken}}
+
+### One tweet
+GET {{host}}/api/tweets/{{tweetId}}
+Authorization: Bearer {{accessToken}}
+
+### Update my tweet (403 if it is someone else's)
+PUT {{host}}/api/tweets/{{tweetId}}
+Authorization: Bearer {{accessToken}}
+Content-Type: application/json
+
+{
+  "content": "Edited tweet"
+}
+
+### Delete my tweet (403 if it is someone else's)
+DELETE {{host}}/api/tweets/{{tweetId}}
+Authorization: Bearer {{accessToken}}

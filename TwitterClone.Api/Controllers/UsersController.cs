@@ -11,6 +11,7 @@ namespace TwitterClone.Api.Controllers
     // api/users
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize] // only logged-in users (valid JWT) can call these endpoints
     public class UsersController : ControllerBase
     {
 

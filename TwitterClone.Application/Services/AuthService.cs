@@ -29,56 +29,34 @@ namespace TwitterClone.Application.Services
 
         public AuthResponseDto? Register(CreateUserDto createUserDto)
         {
+            // CreateUser hashes the password and saves the user. Null = email already taken.
             var user = _userService.CreateUser(createUserDto);
 
-            return user is null ? null : IssueTokens(user);
+            if (user is null)
+            {
+                return null;
+            }
+
+            return IssueTokens(user);
         }
 
         public AuthResponseDto? Login(LoginDto loginDto)
         {
             var user = _userRepository.GetUserByEmail(loginDto.Email);
 
-            if (user is null)
-            {
-                // Spend the same time hashing as a real check would, so response time
-                // does not reveal which emails are registered.
-                _passwordHasher.Hash(UnknownUser, loginDto.Password);
-                return null;
-            }
-
-            var userDto = user.ToDto();
-
-            if (!_passwordHasher.VerifyPassword(userDto, loginDto.Password, user.PasswordHash))
+            if (user is null || !_passwordHasher.Verify(loginDto.Password, user.PasswordHash))
             {
                 return null;
             }
 
-            return IssueTokens(userDto);
+            return IssueTokens(user.ToDto());
         }
 
         public AuthResponseDto? Refresh(string refreshToken)
         {
             var storedToken = _refreshTokenRepository.GetByTokenHash(_tokenService.HashRefreshToken(refreshToken));
 
-            if (storedToken is null)
-            {
-                return null;
-            }
-
-            if (storedToken.IsRevoked)
-            {
-                // A token that was already rotated is being used again: either the client or an
-                // attacker holds a stolen copy. Sign the user out everywhere to be safe.
-                // (Tokens revoked by logout or a password change are simply rejected.)
-                if (storedToken.ReplacedByTokenHash != null)
-                {
-                    _refreshTokenRepository.RevokeAllForUser(storedToken.UserId);
-                }
-
-                return null;
-            }
-
-            if (storedToken.IsExpired)
+            if (storedToken is null || !storedToken.IsActive)
             {
                 return null;
             }
@@ -90,7 +68,7 @@ namespace TwitterClone.Application.Services
                 return null;
             }
 
-            // Rotation: every refresh token is single-use and is replaced by a new one.
+            // Each refresh token works once: revoke the old one and hand out a new pair.
             var response = IssueTokens(user.ToDto());
             storedToken.Revoke(_tokenService.HashRefreshToken(response.RefreshToken));
             _refreshTokenRepository.UpdateRefreshToken(storedToken);
@@ -115,19 +93,12 @@ namespace TwitterClone.Application.Services
         {
             var user = _userRepository.GetUserById(userId);
 
-            if (user is null)
+            if (user is null || !_passwordHasher.Verify(changePasswordDto.CurrentPassword, user.PasswordHash))
             {
                 return null;
             }
 
-            var userDto = user.ToDto();
-
-            if (!_passwordHasher.VerifyPassword(userDto, changePasswordDto.CurrentPassword, user.PasswordHash))
-            {
-                return null;
-            }
-
-            user.PasswordHash = _passwordHasher.Hash(userDto, changePasswordDto.NewPassword);
+            user.PasswordHash = _passwordHasher.Hash(changePasswordDto.NewPassword);
             user.MarkAsModified();
             _userRepository.UpdateUser(user);
 
@@ -137,6 +108,7 @@ namespace TwitterClone.Application.Services
             return IssueTokens(user.ToDto());
         }
 
+        // Creates an access token (JWT) + a refresh token, and stores the refresh token's hash.
         private AuthResponseDto IssueTokens(UserDto user)
         {
             var (accessToken, accessTokenExpiresAt) = _tokenService.GetToken(user);
@@ -158,13 +130,5 @@ namespace TwitterClone.Application.Services
                 User = user
             };
         }
-
-        private static readonly UserDto UnknownUser = new UserDto
-        {
-            Id = Guid.Empty,
-            FirstName = string.Empty,
-            LastName = string.Empty,
-            Email = string.Empty
-        };
     }
 }

@@ -1,10 +1,11 @@
-﻿using TwitterClone.Application.Dtos;
+using TwitterClone.Application.Dtos;
 
 namespace TwitterClone.Application.Interfaces
 {
     public interface ITweetService
     {
-        TweetDto? CreateTweet(CreateTweetDto createTweetDto);
+        // Returns null when the user does not exist.
+        TweetDto? CreateTweet(Guid userId, CreateTweetDto createTweetDto);
         TweetDto? GetTweetById(Guid id);
         List<TweetDto> GetTweets(Guid? userId);
         TweetDto? UpdateTweet(Guid id, UpdateTweetDto updateTweetDto);

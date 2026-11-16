@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,6 +13,12 @@ namespace TwitterClone.Domain.Entities
 
         public static int MaxContentLength = 200;
         
+
+        // Used by EF Core when it loads a tweet from the database.
+        private Tweet() : base(Guid.NewGuid())
+        {
+            _content = string.Empty;
+        }
 
         public Tweet(string content) : base(Guid.NewGuid())
         {

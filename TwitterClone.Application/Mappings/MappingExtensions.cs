@@ -1,4 +1,4 @@
-﻿using TwitterClone.Application.Dtos;
+using TwitterClone.Application.Dtos;
 using TwitterClone.Domain.Entities;
 
 namespace TwitterClone.Application.Mappings
@@ -16,17 +16,6 @@ namespace TwitterClone.Application.Mappings
                 PhoneNumber = user.PhoneNumber,
                 CreatedAt = user.CreatedAt,
                 ModifiedAt = user.ModifiedAt
-            };
-        }
-
-        public static UserDto ToDto(this CreateUserDto user)
-        {
-            return new UserDto
-            {
-                Id = Guid.NewGuid(),
-                FirstName = user.FirstName,
-                LastName = user.LastName,
-                Email = user.Email,
             };
         }
 

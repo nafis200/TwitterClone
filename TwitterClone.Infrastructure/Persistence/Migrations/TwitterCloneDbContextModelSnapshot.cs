@@ -68,6 +68,39 @@ namespace TwitterClone.Infrastructure.Persistence.Migrations
                     b.ToTable("RefreshTokens");
                 });
 
+            modelBuilder.Entity("TwitterClone.Domain.Entities.Tweet", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("Content")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("character varying(200)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<Guid>("CreatedBy")
+                        .HasColumnType("uuid");
+
+                    b.Property<DateTime?>("ModifiedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<Guid?>("ModifiedBy")
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uuid");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Tweets");
+                });
+
             modelBuilder.Entity("TwitterClone.Domain.Entities.User", b =>
                 {
                     b.Property<Guid>("Id")
@@ -114,6 +147,15 @@ namespace TwitterClone.Infrastructure.Persistence.Migrations
                 });
 
             modelBuilder.Entity("TwitterClone.Domain.Entities.RefreshToken", b =>
+                {
+                    b.HasOne("TwitterClone.Domain.Entities.User", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("TwitterClone.Domain.Entities.Tweet", b =>
                 {
                     b.HasOne("TwitterClone.Domain.Entities.User", null)
                         .WithMany()

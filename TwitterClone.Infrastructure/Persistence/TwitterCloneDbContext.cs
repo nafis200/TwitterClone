@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using TwitterClone.Domain.Entities;
 
 namespace TwitterClone.Infrastructure.Persistence
@@ -12,6 +12,7 @@ namespace TwitterClone.Infrastructure.Persistence
 
         public DbSet<User> Users { get; set; }
         public DbSet<RefreshToken> RefreshTokens { get; set; }
+        public DbSet<Tweet> Tweets { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

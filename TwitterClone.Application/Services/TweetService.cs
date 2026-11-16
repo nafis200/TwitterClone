@@ -1,4 +1,4 @@
-﻿using TwitterClone.Application.Dtos;
+using TwitterClone.Application.Dtos;
 using TwitterClone.Application.Interfaces;
 using TwitterClone.Application.Mappings;
 using TwitterClone.Domain.Entities;
@@ -27,14 +27,14 @@ namespace TwitterClone.Application.Services
             _retweetRepository = retweetRepository;
         }
 
-        public TweetDto? CreateTweet(CreateTweetDto createTweetDto)
+        public TweetDto? CreateTweet(Guid userId, CreateTweetDto createTweetDto)
         {
             if (!IsValidContent(createTweetDto.Content))
             {
                 return null;
             }
 
-            var user = _userRepository.GetUserById(createTweetDto.UserId);
+            var user = _userRepository.GetUserById(userId);
 
             if (user == null)
             {
